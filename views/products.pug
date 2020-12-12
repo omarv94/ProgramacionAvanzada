@@ -1,0 +1,37 @@
+//-probar pug
+//-ul
+    each product in products
+        li
+            strong= product.name
+            p= product.price
+            p Comprar
+
+
+extends layout.pug
+
+block hero
+    section.hero.is-dark.is-bold
+        .hero-body
+            .container
+              center
+                       h1.title Movil Tecnologia
+                       h2.subtitle security remote alarm and Gps
+
+//- footer queda debajo
+block content
+    .container(style="flex: 1; padding: 50px 0;")    
+        .columns.is-multiline
+            //-each product in productMocks
+            each product in products
+                .column.is-one-quarter
+                    .card
+                        .card-image
+                            figure.image(style="height: 190px")
+                                img(src=product.image style="height: 100%; object-fit: contain; object-position:50% 30%")
+                        .card-content
+                            h1.title= product.name
+                            .button.is-fullwidth.is-primary
+                                span.icon
+                                    i.fas.fa-shopping-cart
+                                span Add 
+                                    strong= `${product.price} USD`
